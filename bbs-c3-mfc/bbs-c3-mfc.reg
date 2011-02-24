@@ -1,0 +1,17 @@
+REGEDIT
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+
+HKEY_CLASSES_ROOT\bbsc3mfc.Application = bbsc3mfc Application
+
+
+HKEY_CLASSES_ROOT\bbsc3mfc.Application\CLSID = {02271C5C-0989-4496-B14A-EB2DBB7608F2}
+
+HKEY_CLASSES_ROOT\CLSID\{02271C5C-0989-4496-B14A-EB2DBB7608F2} = bbsc3mfc Application
+HKEY_CLASSES_ROOT\CLSID\{02271C5C-0989-4496-B14A-EB2DBB7608F2}\ProgId = bbsc3mfc.Application
+
+
+HKEY_CLASSES_ROOT\CLSID\{02271C5C-0989-4496-B14A-EB2DBB7608F2}\LocalServer32 = bbs-c3-mfc.EXE

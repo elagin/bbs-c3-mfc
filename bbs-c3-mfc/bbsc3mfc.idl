@@ -1,0 +1,29 @@
+// bbsc3mfc.idl : type library source for bbs-c3-mfc.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (bbsc3mfc.tlb).
+
+[ uuid(2BBD2B6A-23EB-4744-B6FB-3A5DF65F3C4D), version(1.0) ]
+library bbsc3mfc
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for Cbbsc3mfcDoc
+	
+	[ uuid(F81D591F-7AF6-4B0F-B9DC-BBCF734DDE3F) ]
+	dispinterface Ibbsc3mfc
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  Class information for Cbbsc3mfcDoc
+	
+	[ uuid(02271C5C-0989-4496-B14A-EB2DBB7608F2) ]
+	coclass bbsc3mfc
+	{
+		[default] dispinterface Ibbsc3mfc;
+	};
+};
