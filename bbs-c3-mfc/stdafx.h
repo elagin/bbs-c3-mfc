@@ -25,7 +25,10 @@
 
 #include <afxdisp.h>        // MFC Automation classes
 
+#include "boost/lexical_cast.hpp"
 
+using boost::lexical_cast;
+using boost::bad_lexical_cast;
 
 #ifndef _AFX_NO_OLE_SUPPORT
 #include <afxdtctl.h>           // MFC support for Internet Explorer 4 Common Controls
@@ -35,7 +38,12 @@
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
 
-
+typedef struct data{
+	long firstStart;
+	long firstEnd;
+	long secondStart;
+	long secondEnd;
+} TDATA;
 
 
 

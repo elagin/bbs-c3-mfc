@@ -2,7 +2,8 @@
 //
 
 #pragma once
-
+#include "worker.h"
+#include "afxwin.h"
 class Cbbsc3mfcDlgAutoProxy;
 
 
@@ -39,6 +40,19 @@ protected:
 	virtual void OnOK();
 	virtual void OnCancel();
 	DECLARE_MESSAGE_MAP()
+
+	CWorker work;
+
+	void CheckField();
+
 public:
-	afx_msg void OnBnClickedButton2();
+	CString firstStart;
+	CString firstEnd;
+	CString secondStart;
+	CString secondEnd;
+	CString fileName;
+	afx_msg void OnBnClickedBrowse();
+	CEdit _firstStartCtrl;
+	CButton _startBtn;
+	afx_msg void OnBnClickedStart();
 };

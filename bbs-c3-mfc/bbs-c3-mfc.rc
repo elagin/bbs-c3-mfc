@@ -78,27 +78,28 @@ IDR_MAINFRAME           ICON                    "res\\bbs-c3-mfc.ico"
 // Dialog
 //
 
-IDD_BBSC3MFC_DIALOG DIALOGEX 0, 0, 320, 200
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION
+IDD_BBSC3MFC_DIALOG DIALOGEX 0, 0, 320, 167
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "bbs-c3"
-FONT 8, "MS Shell Dlg", 0, 0, 0x1
+FONT 10, "Microsoft Sans Serif", 400, 0, 0xCC
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,209,179,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,263,179,50,14
-    LTEXT           "Начальное число",IDC_STATIC,15,31,66,10
-    EDITTEXT        IDC_FIRST_START,120,24,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Конечное число",IDC_STATIC,15,49,92,10
-    EDITTEXT        IDC_FIRST_END,120,44,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    GROUPBOX        "Первый столбец",IDC_STATIC,7,13,306,52
-    GROUPBOX        "Второй столбец",IDC_STATIC,7,67,306,52
-    LTEXT           "Начальное число",IDC_STATIC,15,85,66,10
-    LTEXT           "Конечное число",IDC_STATIC,15,101,92,10
-    EDITTEXT        IDC_SECOND_START,120,75,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    EDITTEXT        IDC_SECOND_END,120,96,40,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "Имя файла",IDC_STATIC,15,121,37,8
-    EDITTEXT        IDC_EDIT1,15,137,242,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Обзор...",IDC_BROWSE,263,137,50,14
+    PUSHBUTTON      "Выход",IDCANCEL,169,140,50,14
+    LTEXT           "Начальное число:",IDC_STATIC,15,29,64,10
+    EDITTEXT        IDC_FIRST_START,85,27,42,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Конечное число:",IDC_STATIC,159,29,58,10
+    EDITTEXT        IDC_FIRST_END,224,27,41,12,ES_AUTOHSCROLL | ES_NUMBER
+    GROUPBOX        "Первый столбец",IDC_STATIC,7,13,306,34
+    GROUPBOX        "Второй столбец",IDC_STATIC,7,55,306,31
+    LTEXT           "Начальное число:",IDC_STATIC,15,69,64,10
+    LTEXT           "Конечное число:",IDC_STATIC,159,69,58,10
+    EDITTEXT        IDC_SECOND_START,85,67,42,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_SECOND_END,224,67,41,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Имя файла: (должно иметь расширение .csv)",IDC_STATIC,7,91,152,8
+    EDITTEXT        IDC_EDIT1,7,101,250,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Папка...",IDC_BROWSE,263,101,50,14
+    PUSHBUTTON      "Старт",IDC_START,102,140,50,14,WS_DISABLED
+    LTEXT           "Введите 4 числа и укажите имя файла, если эти условия не будут выполнены, кнопка ""Старт"" будет неактивна.",IDC_STATIC,47,119,226,20
 END
 
 
@@ -115,9 +116,19 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 313
         VERTGUIDE, 15
-        VERTGUIDE, 120
+        VERTGUIDE, 79
+        VERTGUIDE, 85
+        VERTGUIDE, 127
+        VERTGUIDE, 159
+        VERTGUIDE, 217
+        VERTGUIDE, 224
+        VERTGUIDE, 265
         TOPMARGIN, 7
-        BOTTOMMARGIN, 193
+        BOTTOMMARGIN, 160
+        HORZGUIDE, 27
+        HORZGUIDE, 29
+        HORZGUIDE, 67
+        HORZGUIDE, 69
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -182,6 +193,8 @@ END
 STRINGTABLE 
 BEGIN
     IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
+    IDS_OPENFILEFILTER      "CSV files(*.csv)"
+    IDS_OPENFILETITLE       "OpenFile"
 END
 
 #endif    // English (U.S.) resources
