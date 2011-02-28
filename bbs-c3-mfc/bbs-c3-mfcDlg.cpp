@@ -16,11 +16,11 @@ IMPLEMENT_DYNAMIC(Cbbsc3mfcDlg, CDialog);
 
 Cbbsc3mfcDlg::Cbbsc3mfcDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(Cbbsc3mfcDlg::IDD, pParent)
-	, firstStart(_T("1203225001"))
-	, firstEnd(_T("1203225067"))
-	, secondStart(_T("1403225001"))
-	, secondEnd(_T("1403225067"))
-	, fileName(_T("c:\\Projects\\bbs\\1.csv"))
+//	, firstStart(_T("1203225001"))
+//	, firstEnd(_T("1203225067"))
+//	, secondStart(_T("1403225001"))
+//	, secondEnd(_T("1403225067"))
+//	, fileName(_T("c:\\Projects\\bbs\\1.csv"))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pAutoProxy = NULL;
@@ -252,32 +252,54 @@ void Cbbsc3mfcDlg::OnBnClickedStart()
 {
 	TDATA data;
 	memset(&data, 0, sizeof(TDATA));
-	
+
 	UpdateData(true);
 
-	if( firstStart.GetLength() == 10
-		&& firstEnd.GetLength() == 10
-		&&  secondStart.GetLength() == 10
-		&& secondEnd.GetLength() == 10
-		)
+	if(checkFile(fileName))
 	{
-		data.firstStart = _ttol(firstStart);
-		data.firstEnd = _ttol(firstEnd);
-		data.secondStart = _ttol(secondStart);
-		data.secondEnd = _ttol(secondEnd);
-
-		if( data.secondEnd > data.secondStart && data.firstEnd > data.firstStart )
+		if( firstStart.GetLength() == 10
+			&& firstEnd.GetLength() == 10
+			&&  secondStart.GetLength() == 10
+			&& secondEnd.GetLength() == 10
+			)
 		{
-			work.start( data, fileName);
-			MessageBox( L"Работа окончена.", L"Поздравляю", MB_OK );
+			data.firstStart = _ttol(firstStart);
+			data.firstEnd = _ttol(firstEnd);
+			data.secondStart = _ttol(secondStart);
+			data.secondEnd = _ttol(secondEnd);
+
+			if( data.secondEnd > data.secondStart && data.firstEnd > data.firstStart )
+			{
+				work.start( data, fileName);
+				MessageBox( L"Работа окончена.", L"Поздравляю", MB_OK );
+			}
+			else
+			{
+				MessageBox( L"Конечные числа должны быть больше начальных.", L"Ошибка", MB_OK|MB_ICONERROR );
+			}
 		}
 		else
 		{
-			MessageBox( L"Конечные числа должны быть больше начальных.", L"Ошибка", MB_OK|MB_ICONERROR );
+			MessageBox( L"Исходные числа должны быть десятизначными.", L"Ошибка", MB_OK|MB_ICONERROR );
 		}
 	}
 	else
 	{
-		MessageBox( L"Исходные числа должны быть десятизначными.", L"Ошибка", MB_OK|MB_ICONERROR );
+		MessageBox( L"Файл уже существует, пожалуйста, укажите другое имя файла.", L"Ошибка", MB_OK|MB_ICONERROR );
+	}
+}
+
+bool Cbbsc3mfcDlg::checkFile( const CString & fileName )
+{
+	HANDLE hFile;
+	hFile = CreateFile( fileName, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL );
+	if(hFile == INVALID_HANDLE_VALUE)
+	{
+		return true;
+	}
+	else
+	{
+		CloseHandle(hFile);
+		return false;
 	}
 }

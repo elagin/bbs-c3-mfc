@@ -4,11 +4,12 @@ using namespace std;
 class CWorker
 {
 public:
-	CWorker(void);
-	bool start(data & aData, CString aFileName);
-	~CWorker(void);
+	bool start(const data & aData, const CString & aFileName);
+	string format(const string & aStr);
 
-	string format(string & aStr);
+private:
+	bool checkFile( const CString & fileName );
+	string setCell(const string & aSrt);
 
 private:
 	CString aa;

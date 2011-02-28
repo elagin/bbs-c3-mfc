@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Sat Feb 26 23:59:04 2011
+/* at Mon Feb 28 10:29:46 2011
  */
 /* Compiler settings for .\bbsc3mfc.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)

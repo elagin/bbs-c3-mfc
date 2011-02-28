@@ -44,6 +44,7 @@ protected:
 	CWorker work;
 
 	void CheckField();
+	bool checkFile( const CString & fileName );
 
 public:
 	CString firstStart;
